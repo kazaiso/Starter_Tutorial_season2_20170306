@@ -31,7 +31,7 @@ type
   end;
 
 type
-  // Tkemonoクラス
+  // TKemonoクラス定義
   TKemono = class(TObject) // TServel, TFennectの親クラス
   public
     function Voice: string; virtual;
@@ -40,13 +40,13 @@ type
 
   TFriends = class of TKemono; // TKemonoクラスの型を表す[TFriends]を定義
 
-  TServal = class(TKemono) // Tkemonoを継承
+  TServal = class(TKemono) // TKemonoを継承
   public
     function Voice: string; override;
     // 親クラス内のVoice 文字列を返すメソッド abstractのVoiceメソッド overrideするキーワード付き
   end;
 
-  TFennec = class(TKemono) // Tkemonoを継承
+  TFennec = class(TKemono) // TKemonoを継承
   public
     function Voice: string; override;
     // 親クラス内のVoice 文字列を返すメソッド abstractのVoiceメソッド overrideするキーワード付き
@@ -54,12 +54,11 @@ type
 
   // TDateというクラス定義識別子を、「 = class 」としてクラス定義
 type
-  TDate = class
-    // 親となるTDateクラス（ベースクラス）
+  TDate = class // 親となるTDateクラス
   private // 他ユニットからは参照できず、アクセスもできない
     FDate: TDateTime; // クラスで保持するデータ（フィールド）の定義
   public // 他ユニットから参照、アクセス可能
-    constructor Create; overload; // デフォルトのCreateと同じ記述でOverload指定
+    constructor Create; overload; // デフォルトのCreateと同じ記述でoverload指定
     constructor Create(Y, M, D: Integer); overload; // 初期値を与えるCreateのoverload
     procedure SetValue(Y, M, D: Integer); overload; // 年月日をIntegerでセットするメソッド
     procedure SetValue(NewDate: TDateTime); overload; // 年月日をTDateTimeでセットするメソッド
@@ -81,14 +80,14 @@ type
     function info: string;
   end; // クラス定義end;
 
-  // TDateクラス継承したTNえｗDateのクラス定義
-  TNewDate = class(TDate) // Tateから派生（TDateを継承）する 子クラス（サブクラス）
+  // TDateクラス継承したTNewDateのクラス定義
+  TNewDate = class(TDate) // TDateから派生（TDateを継承）する 子クラス（サブクラス）
   public
     function GetText: string; // 親の持つ GetTextメソッドをTNewDateクラス版に書き換えるための宣言
   end;
 
-  function KemonoVoice(KemonoClassName: TFriends): String; //クラスエイリアスを使う
-
+ //メタクラスを使う （クラスの型名を扱える型・クラス参照）
+  function KemonoVoice(KemonoClassName: TFriends): String;
 var
   Form1: TForm1;
 
@@ -215,16 +214,16 @@ begin
 end;
 
 procedure TDate.SetValue(NewDate: TDateTime);
-// TDateTime型のパラメータの時実行.実装部にはOverloadキーワード不要
+// TDateTime型のパラメータの時実行.実装部にはoverloadキーワード不要
 begin
   FDate := NewDate;
 end;
 
 procedure TDate.SetValue(Y, M, D: Integer);
-// Integerx3の時実行.実装部にはOverloadキーワード不要
+// Integerx3の時実行.実装部にはoverloadキーワード不要
 begin
   FDate := EncodeDate(Y, M, D);
-  // 指定されたパラメータをTDateTime型に変換してFdateフィールドに代入
+  // 指定されたパラメータをTDateTime型に変換してFDateフィールドに代入
 end;
 
 { TPerson }
@@ -238,7 +237,7 @@ end;
 
 destructor TPerson.Destroy; // デストラクタ Destroyの宣言 (実装部に override キーワードは不要）
 begin
-  FBirthDate.Free; // Create時に確保したFBirthDayの破棄
+  FBirthDate.Free; // Create時に確保したFBirthDateの破棄
   inherited;
 end;
 

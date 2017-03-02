@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 345
+  ClientHeight = 381
   ClientWidth = 362
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -19,7 +19,7 @@ object Form1: TForm1
     Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
     DataDetectorTypes = []
     Align = Bottom
-    Position.Y = 217.000000000000000000
+    Position.Y = 253.000000000000000000
     Size.Width = 362.000000000000000000
     Size.Height = 128.000000000000000000
     Size.PlatformDefault = False
@@ -40,7 +40,7 @@ object Form1: TForm1
     Position.X = 202.000000000000000000
     Position.Y = 10.000000000000000000
     Size.Width = 150.000000000000000000
-    Size.Height = 197.000000000000000000
+    Size.Height = 233.000000000000000000
     Size.PlatformDefault = False
     Text = #12369#12418#12398
     TabOrder = 2
